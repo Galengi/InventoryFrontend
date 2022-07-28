@@ -1,0 +1,29 @@
+section.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.buttons{
+    margin: 5px;
+}
+.buttonsFirst{
+    margin-right: 150px;
+}
+h1{
+    text-align: center;
+    align-items: center;
+    padding-top: 50px;
+}
+ul{
+    padding: 0px;
+}
+.hide{
+    display: none;
+}
+.unhide{
+    display:block;
+}

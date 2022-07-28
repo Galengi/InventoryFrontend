@@ -1,0 +1,20 @@
+<mat-toolbar color="grey">
+    <span>Tags</span>
+</mat-toolbar>
+
+<div>
+    <button mat-raised-button color="primary" (click)="openAdd()">
+        Añadir
+        <mat-icon>add_to_photo</mat-icon>
+    </button>
+</div>
+
+<section class="tags">
+    <app-tag-card 
+    (opDelete)="delete($event)"
+    (opEdit)="openEdit($event)"
+    [tag]="tag" 
+    *ngFor="let tag of lstTags">
+    </app-tag-card>
+</section>
+

@@ -1,0 +1,22 @@
+
+<mat-card-title>Lista de la compra</mat-card-title>
+
+<mat-dialog-content>
+    <form [formGroup]="shopForm" (ngSubmit)="addSubmit()">
+
+        <mat-dialog-content>
+            <h3>Producto: {{modelProduct!.name}}</h3>
+            <h3>Empresa: {{modelProduct!.defaultCompany}}</h3>
+        </mat-dialog-content>
+
+            <mat-form-field class="form_element">
+                <input type="number" formControlName="amount" matInput [(ngModel)]="model.amount" placeholder="Cantidad">
+            </mat-form-field>
+
+            
+            <mat-dialog-actions class="container_button">
+                <button type="submit" [disabled]="!shopForm.valid" mat-raised-button color="primary">Añadir a la lista</button>
+                <button type="button" (click)="close()" mat-raised-button color="warn"> Cancelar</button>
+            </mat-dialog-actions>
+    </form>
+</mat-dialog-content>

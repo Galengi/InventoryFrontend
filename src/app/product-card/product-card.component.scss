@@ -1,0 +1,111 @@
+
+
+    .card {
+        margin:5px;
+        min-height:100px;
+        min-width: 260px;
+        max-width: 260px;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border:1px red solid;
+        padding:5px; /* this */
+    }
+    
+    .hide {
+        display: none;
+    }
+        
+
+    .cardHeader {
+        margin:5px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .cardHeader:hover + .hide {
+        display: block;
+    }
+
+    .myHeader {
+        margin:0 auto;
+        justify-content: left;
+        width:30%;
+    }
+    .myHeaderImg {
+        margin:0 auto;
+        justify-content: right;
+    }
+
+    .cardcontent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        margin-top: 5px;
+        color: rgb(0, 0, 0);
+    }
+    .cardcontentinner {
+        padding: 0px;
+        margin:0px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+    }
+    .imageClass{
+        width: 150px;
+        height: 150px;
+    }
+    .actionsCard {
+        margin:5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        padding: 5px;
+    }
+    .actionsTopCard {
+        margin:5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    button{
+        margin-left:2px;
+    }
+    mat-action-row{
+        padding: 0;
+        justify-content: center;
+    }
+    mat-dialog-content{
+        padding: 0 12px;
+    }
+    mat-expansion-header{
+        align-items: center;
+        justify-content: center;
+        padding: 0 6px;
+    }
+    mat-expansion-panel-header-title{
+        margin-right: 6px;
+        justify-content: right;
+    }
+    mat-expansion-panel-header{
+        padding: 0 6px;
+    }
+    mat-panel-title{
+        justify-content: left;
+        width: 60px;
+    }
+    mat-panel-description{
+        justify-content: right;
+        width: 180px;
+    }

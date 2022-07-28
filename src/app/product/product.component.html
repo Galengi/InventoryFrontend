@@ -1,0 +1,79 @@
+<mat-toolbar color="grey">
+    <span>Productos</span>
+</mat-toolbar>
+
+<mat-dialog-content>
+    <button class="buttonsFirst" mat-raised-button color="primary" (click)="openAdd()">
+        Añadir
+        <mat-icon>add_to_photo</mat-icon>
+    </button>
+    <button class="buttons" mat-raised-button color="primary" [ngStyle]="{'color': this.tagsVisible? 'white' : 'grey'}" (click)="this.tagsVisible = !this.tagsVisible">
+        Tags
+        <mat-icon>remove_red_eye</mat-icon>
+    </button>
+    <button class="buttons" mat-raised-button color="primary" [ngStyle]="{'color': this.companiesVisible? 'white' : 'grey'}" (click)="this.companiesVisible = !this.companiesVisible">
+        Empresas
+        <mat-icon>remove_red_eye</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" [ngStyle]="{'color': this.shopVisible? 'white' : 'grey'}" (click)="this.shopVisible = !this.shopVisible">
+        Lista de la compra
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+</mat-dialog-content>
+
+
+<ul *ngIf="this.shopVisible">
+    
+<li>
+    <section class="products">
+    <app-product-shop-card 
+        (opDelete)="delete($event)"
+        (opEdit)="openEdit($event)"
+        (opIncrementShop)="openIncrementShop($event)"
+        (opDecrementShop)="openDecrementShop($event)"
+        [shopList]="shopLst" 
+        *ngFor="let shopLst of lstProductModelsShop">
+    </app-product-shop-card>
+</section>
+</li>
+</ul>
+
+
+<ul *ngIf="this.tagsVisible">
+    
+    <li 
+        *ngFor="let model of lstProductModelsTags">
+            <h1 >{{model.name}}</h1>
+        <section class="products">
+        <app-product-card 
+            (opDelete)="delete($event)"
+            (opEdit)="openEdit($event)"
+            (opIncrement)="openIncrement($event)"
+            (opDecrement)="openDecrement($event)"
+            (opShopList)="openShopList($event)"
+            [product]="prod" 
+            *ngFor="let prod of model.lstModels">
+        </app-product-card>
+    </section>
+    </li>
+    </ul>
+
+<ul *ngIf="this.companiesVisible">
+<li 
+    *ngFor="let model of lstProductModelsCompanies">
+    <h1 >{{model.name}}</h1>
+    <section class="products">
+    <app-product-card 
+        (opDelete)="delete($event)"
+        (opEdit)="openEdit($event)"
+        (opIncrement)="openIncrement($event)"
+        (opDecrement)="openDecrement($event)"
+        (opShopList)="openShopList($event)"
+        [product]="prod" 
+        *ngFor="let prod of model.lstModels">
+    </app-product-card>
+</section>
+</li>
+</ul>
+
+

@@ -1,0 +1,23 @@
+<div>
+    hola {{nombre}}
+    <div>
+        <input type="text" [formControl]="nameControl" />
+        <input #text type="text" [formControl]="textControl" />
+    
+        <input type="button" (click)="SendMessage()" value="Enviar" />
+    
+    </div>
+</div>
+<button mat-raised-button color="primary" (click)="CambiaNombre()">Cambia el nombre</button>
+
+<app-message *ngFor="let elemento of lstMessages | async" [oMessage] = "elemento">
+</app-message>
+<div>{{chatService.algo}}</div>
+
+<input type="button" (click)="CambiaNombre()" value="Cambia el nombre">
+
+<app-message *ngFor="let elemento of lstMessages | async" texto = "texto a mostrar">
+</app-message>
+
+
+

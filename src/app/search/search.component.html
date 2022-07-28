@@ -1,0 +1,23 @@
+<mat-card-title>{{ lstProducts.length >= 1 ? "Productos" : "" }}</mat-card-title>
+<section class="products">
+    <app-product-card 
+    [product]="product" 
+    *ngFor="let product of lstProducts">
+    </app-product-card>
+</section>
+
+<mat-card-title >{{ lstCompanies.length >= 1 ? "Empresas" : "" }}</mat-card-title>
+<section class="companies">
+    <app-company-card
+    [company]="company" 
+    *ngFor="let company of lstCompanies">
+    </app-company-card>
+</section>
+
+<mat-card-title>{{ lstTags.length >= 1 ? "Tags" : "" }}</mat-card-title>
+<section class="tags">
+    <app-tag-card 
+    [tag]="tag" 
+    *ngFor="let tag of lstTags">
+    </app-tag-card>
+</section>

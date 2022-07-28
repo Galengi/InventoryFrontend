@@ -1,0 +1,17 @@
+
+<mat-card-title>Formulario de Tipo</mat-card-title>
+
+<mat-dialog-content>
+    <form [formGroup]="typeUnitForm" (ngSubmit)="addSubmit()">
+
+            <mat-form-field class="form_element">
+                <input matInput required type="text" formControlName="name" [(ngModel)]="model.name" placeholder="Nombre"/>
+            </mat-form-field>
+
+            
+            <mat-dialog-actions class="container_button">
+                <button type="submit" [disabled]="!typeUnitForm.valid" mat-raised-button color="primary">{{ isAddMode ? "Añadir" : "Editar" }}</button>
+                <button (click)="close()" mat-raised-button color="warn"> Cancelar</button>
+            </mat-dialog-actions>
+    </form>
+</mat-dialog-content>

@@ -1,0 +1,21 @@
+
+<mat-card-title>Formulario de Empresa</mat-card-title>
+
+<mat-dialog-content>
+    <form [formGroup]="companyForm" (ngSubmit)="addSubmit()">
+
+            <mat-form-field class="form_element">
+                <input matInput required type="text" formControlName="name" [(ngModel)]="model.name" placeholder="Nombre"/>
+            </mat-form-field>
+            <mat-form-field class="form_element">
+                <input type="number" formControlName="priority" matInput [(ngModel)]="model.priority" placeholder="Prioridad">
+            </mat-form-field>
+
+            
+            <mat-dialog-actions class="container_button">
+                <button type="submit" [disabled]="!companyForm.valid" mat-raised-button color="primary">{{ isAddMode ? "Añadir" : "Editar" }}</button>
+                <button (click)="close()" mat-raised-button color="warn"> Cancelar</button>
+            </mat-dialog-actions>
+    </form>
+</mat-dialog-content>
+

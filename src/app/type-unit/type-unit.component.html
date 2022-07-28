@@ -1,0 +1,19 @@
+<mat-toolbar color="grey">
+    <span>Tipos</span>
+</mat-toolbar>
+
+<div>
+    <button mat-raised-button color="primary" (click)="openAdd()">
+        Añadir
+        <mat-icon>add_to_photo</mat-icon>
+    </button>
+</div>
+
+<section class="types">
+    <app-type-unit-card 
+    (opDelete)="delete($event)"
+    (opEdit)="openEdit($event)"
+    [typeUnit]="typeUnit" 
+    *ngFor="let typeUnit of lstTypeUnits">
+    </app-type-unit-card>
+</section>

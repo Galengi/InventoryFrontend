@@ -1,0 +1,19 @@
+<mat-card class="card">
+    <mat-card-header>
+        <h2>
+            {{typeUnit.name}}
+        </h2>
+    </mat-card-header>
+    <mat-card-actions> 
+        <tr>
+            <button (click)="onEdit()" mat-raised-button color="basic">Editar
+                <mat-icon>edit</mat-icon>
+            </button>
+        </tr>
+        <tr>
+            <button (click)="onDelete()" mat-raised-button color="warn">Eliminar
+                <mat-icon>delete</mat-icon>
+            </button>
+        </tr>
+    </mat-card-actions>
+</mat-card>

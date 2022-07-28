@@ -1,0 +1,24 @@
+.global-content{
+    height: 100%;
+}
+
+.space{
+    flex: 1 1 auto;
+    width:20%;
+}
+
+.a{
+    text-decoration:none;
+    color: #fff;
+}
+
+.mouseHover:hover{
+    background-color: rgb(4, 172, 194);
+    cursor: pointer;
+    transition: all 0.7 ease-in-out;
+}
+.mouseHoverLogout:hover{
+    background-color: rgba(168, 43, 32, 0.624);
+    cursor: pointer;
+    transition: all 0.7 ease-in-out;
+}

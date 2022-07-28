@@ -1,0 +1,49 @@
+<mat-card class="card">
+    <mat-card-content class="cardHeader">
+        <mat-dialog-content class="actionsTopCard">
+            <button (click)="onIncrement()" mat-raised-button color="warn">
+                <mat-icon>add</mat-icon>
+            </button>
+            <button (click)="onAddToList()" mat-raised-button color="basic">
+                <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+            <button (click)="onDecrement()" mat-raised-button color="warn">
+                <mat-icon>remove</mat-icon>
+            </button>
+        </mat-dialog-content>
+    </mat-card-content>
+
+    <mat-card-content class="cardHeader">
+        <div>
+            <td class="rowsClass">
+                <tr>
+                    <h2>
+                        {{product.name}}</h2>
+                </tr>
+                <tr>
+                    <h2>{{product.defaultCompany}}</h2>
+                </tr>
+                <tr>
+                    <h2>{{product.price}} <mat-icon>euro_symbol</mat-icon></h2>	
+                </tr>
+            </td>
+            <td class="rowsClass">
+                <tr>
+                    <h2><mat-icon>home</mat-icon> {{product.currentAmount}}</h2>
+                </tr>
+                <tr>
+                    <h2><mat-icon> local_grocery_store</mat-icon> {{shopList.amount}}</h2>
+                </tr>
+                <tr>
+                    <h2>{{total}} <mat-icon>euro_symbol</mat-icon></h2>
+                </tr>
+            </td>
+        </div>
+        <div class="myHeaderImg">
+            <label class="imageClass"> 
+                <img [src]="myImage" alt="No existe imagen" style="object-fit: cover; height: inherit; width: inherit;">
+            </label>
+        </div>
+    </mat-card-content>
+      
+</mat-card>

@@ -1,0 +1,86 @@
+
+<mat-card-title>Formulario de Producto</mat-card-title>
+
+<mat-dialog-content class="container">
+    <form [formGroup]="productForm" (ngSubmit)="addSubmit()">
+        <ng-container class="inner_container">
+            <mat-form-field class="form_element_text">
+                <input matInput required type="text" formControlName="name" [(ngModel)]="model.name" placeholder="Nombre"/>
+            </mat-form-field>
+            <mat-form-field class="form_element">
+                <input type="number" formControlName="currentAmount" matInput [(ngModel)]="model.currentAmount" placeholder="Cantidad actual">
+            </mat-form-field>
+            <mat-form-field class="form_element">
+                <input type="number" formControlName="minAmount" matInput [(ngModel)]="model.minAmount" placeholder="Mínima cantidad">
+            </mat-form-field>
+            <mat-form-field class="form_element">
+                <input formControlName="productAmount" (keydown)="numberOnly($event)" matInput [(ngModel)]="model.productAmount" placeholder="Cantidad del producto">
+            </mat-form-field>
+            <mat-form-field class="form_element">
+                <mat-select formControlName="typeAmount" placeholder="Tipo de unidad" [(ngModel)]="model.typeAmount" required>
+                    <mat-option *ngFor="let tip of lstTyp" [value]="tip.id" >
+                        {{tip.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form_element">
+                <input type="text" formControlName="required" matInput [(ngModel)]="model.required" placeholder="Requerido">
+            </mat-form-field>
+            <mat-form-field class="form_element">
+                <mat-select formControlName="productTags" placeholder="Tags" multiple>
+                    <mat-option *ngFor="let tag of lstTags" [value]="tag.id" >
+                        {{tag.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </ng-container>
+
+        <ng-container class="inner_container">
+            <mat-dialog-content>
+                <label class="imageClass" for="file"> Examinar arxiu
+                    <img [src]="myImage" alt="No existe imagen" style="object-fit: cover; height: inherit; width: inherit;">
+                </label>
+                <input type="file" id="file" accept="image/*" hidden (change)="onSelectNewFile($any($event.target)?.files)">
+            </mat-dialog-content>
+        </ng-container>
+
+            <ng-container formArrayName="productCompanies">
+                <ng-container *ngFor="let companyForm of companiesForm.controls; let i=index">
+                    <div [formGroupName]="i">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="id"
+                                    placeholder="Nombre de la empresa">
+                                <mat-option *ngFor="let comp of lstCompanies" [value]="comp.id" >
+                                    {{comp.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <input matInput (keydown)="numberOnly($event)"
+                            formControlName="price"
+                            placeholder="Precio">
+                        </mat-form-field>
+                        <mat-icon class="delete-btn" (click)="deleteCompany(i)">
+                            delete_forever</mat-icon>
+
+                    </div>
+
+                </ng-container>
+            </ng-container>
+            <mat-dialog-actions class="container_button">
+                <button type="button" mat-raised-button (click)="addCompany()">
+                    Add Company/Price
+                </button>
+            </mat-dialog-actions>
+
+
+
+
+            
+            <mat-dialog-actions class="container_button">
+                <button type="submit" [disabled]="!productForm.valid || (companiesForm.length < 1)" mat-raised-button color="primary">{{ isAddMode ? "Añadir" : "Editar" }}</button>
+                <button type="button" (click)="close()" mat-raised-button color="warn"> Cancelar</button>
+            </mat-dialog-actions>
+    </form>
+
+</mat-dialog-content>
